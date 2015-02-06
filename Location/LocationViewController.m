@@ -8,9 +8,13 @@
 
 #import "LocationViewController.h"
 
+
+NSString *const locationUpdateNotificationCenterName=@"locationUpdateNotificationCenter";
+
 @interface LocationViewController ()
 
 @end
+
 
 @implementation LocationViewController
 
@@ -19,8 +23,18 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alterLabel:) name:locationUpdateNotificationCenterName object:nil];
+
 }
 
+-(void) alterLabel:(NSNotification *)notification
+{
+    NSDictionary *coordinates=[notification userInfo];
+    NSString *lat = [coordinates valueForKey:@"latitude"];
+    NSString *lon = [coordinates valueForKey:@"longitude"];
+    self.Latitude.text=lat;
+    self.Longitude.text=lon;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -28,6 +28,12 @@
     return sharedInstance;
 }
 
+-(id)init{
+    if (self = [super init]) {
+        NSLog(@"initializing the data manager");
+    }
+    return self;
+}
 
 -(void)save
 {
@@ -68,8 +74,10 @@
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"DataModelName" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"LocalData" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    NSLog(@"the url is : %@",modelURL);
+    
     return _managedObjectModel;
 }
 

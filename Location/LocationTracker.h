@@ -36,6 +36,7 @@
 
 - (void)startLocationTracking;
 - (void)stopLocationTracking;
+- (void)postLocationUpdateNotificationToUI;
 
 
 //Core Data properties

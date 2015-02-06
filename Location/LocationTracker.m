@@ -37,7 +37,6 @@
 
         //Initialize the Core Data stack
         self.dataManager=[DataManager sharedInstance];
-      
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
 	}
 	return self;
@@ -74,6 +73,7 @@
 
 - (void)startLocationTracking {
     NSLog(@"startLocationTracking");
+
 
 	if ([CLLocationManager locationServicesEnabled] == NO) {
         NSLog(@"locationServicesEnabled false");
@@ -145,6 +145,19 @@
 
             NSManagedObject *latestLocation = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
             
+            [latestLocation setValue:[NSNumber numberWithFloat:theLocation.latitude] forKey:@"latitude"];
+            [latestLocation setValue:[NSNumber numberWithFloat:theLocation.longitude] forKey:@"longitude"];
+            [latestLocation setValue:[NSNumber numberWithFloat:theAccuracy] forKey:@"accuracy"];
+            [latestLocation setValue:[newLocation timestamp] forKey:@"timestamp"];
+            
+            NSLog(@"DONE STORING ");
+            [self postLocationUpdateNotificationToUI:dict];
+            
+            
+             
+             
+            
+            
             //Add the vallid location with good accuracy into an array
             //Every 1 minute, I will select the best location based on accuracy and send to server
             [self.shareModel.myLocationArray addObject:dict];
@@ -184,6 +197,13 @@
     NSLog(@"locationManager stop Updating after 10 seconds");
 }
 
+-(void) postLocationUpdateNotificationToUI:(NSMutableDictionary *) coordinates
+{
+    NSString *notificationName = @"locationUpdateNotificationCenter";
+    NSDictionary *c = [NSDictionary dictionaryWithDictionary:coordinates];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:c];
+}
 
 - (void)locationManager: (CLLocationManager *)manager didFailWithError: (NSError *)error
 {
