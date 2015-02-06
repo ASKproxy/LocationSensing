@@ -27,6 +27,8 @@
 		5C9090CE18B3AB2100510153 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C9090CD18B3AB2100510153 /* CoreLocation.framework */; };
 		A479F2EB1A82B9020075849D /* LocalData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A479F2E91A82B9020075849D /* LocalData.xcdatamodeld */; };
 		A4AD5AB21A7D9A2500F9BFD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4AD5AB11A7D9A2500F9BFD4 /* CoreData.framework */; };
+		A4F67A991A843B2300740DEA /* TemplateIcon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A4F67A981A843B2300740DEA /* TemplateIcon2x.png */; };
+		A4F67AA51A843CDE00740DEA /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A4F67AA41A843CDE00740DEA /* DataManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,9 @@
 		5C9090CD18B3AB2100510153 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A479F2EA1A82B9020075849D /* LocalData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocalData.xcdatamodel; sourceTree = "<group>"; };
 		A4AD5AB11A7D9A2500F9BFD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A4F67A981A843B2300740DEA /* TemplateIcon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TemplateIcon2x.png; sourceTree = "<group>"; };
+		A4F67AA31A843CDE00740DEA /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = ../DataManager.h; sourceTree = "<group>"; };
+		A4F67AA41A843CDE00740DEA /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = ../DataManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +104,7 @@
 		5C90908318B3A66A00510153 = {
 			isa = PBXGroup;
 			children = (
+				A4F67A981A843B2300740DEA /* TemplateIcon2x.png */,
 				5C90909518B3A66A00510153 /* Location */,
 				5C9090B418B3A66A00510153 /* LocationTests */,
 				5C90908E18B3A66A00510153 /* Frameworks */,
@@ -143,6 +149,8 @@
 				5C9090CB18B3A7FC00510153 /* BackgroundTaskManager.m */,
 				5C9090C718B3A78800510153 /* LocationShareModel.h */,
 				5C9090C818B3A78800510153 /* LocationShareModel.m */,
+				A4F67AA31A843CDE00740DEA /* DataManager.h */,
+				A4F67AA41A843CDE00740DEA /* DataManager.m */,
 				5C9090A718B3A66A00510153 /* Images.xcassets */,
 				5C90909618B3A66A00510153 /* Supporting Files */,
 			);
@@ -262,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4F67A991A843B2300740DEA /* TemplateIcon2x.png in Resources */,
 				5C9090A818B3A66A00510153 /* Images.xcassets in Resources */,
 				5C90909A18B3A66A00510153 /* InfoPlist.strings in Resources */,
 				5C9090A318B3A66A00510153 /* Main.storyboard in Resources */,
@@ -288,6 +297,7 @@
 				5C9090C618B3A75500510153 /* LocationTracker.m in Sources */,
 				5C9090A618B3A66A00510153 /* LocationViewController.m in Sources */,
 				5C9090C918B3A78800510153 /* LocationShareModel.m in Sources */,
+				A4F67AA51A843CDE00740DEA /* DataManager.m in Sources */,
 				5C9090CC18B3A7FC00510153 /* BackgroundTaskManager.m in Sources */,
 				5C9090A018B3A66A00510153 /* LocationAppDelegate.m in Sources */,
 			);

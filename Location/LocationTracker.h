@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LocationShareModel.h"
+#import "DataManager.h"
 
 
 @interface LocationTracker : NSObject <CLLocationManagerDelegate>
@@ -25,6 +26,7 @@
 @property (strong,nonatomic) NSNumber * userid;
 
 @property (strong,nonatomic) LocationShareModel * shareModel;
+@property (strong,nonatomic) DataManager * dataManager;
 @property (nonatomic) CLLocationCoordinate2D myLocation;
 @property (nonatomic) CLLocationAccuracy myLocationAccuracy;
 

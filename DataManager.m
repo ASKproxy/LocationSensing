@@ -1,59 +1,46 @@
 //
-//  LocationAppDelegate.m
+//  DataManager.m
 //  Location
 //
-//  Created by Rick
-//  Copyright (c) 2014 Location. All rights reserved.
+//  Created by Arvind Chockalingam on 2/5/15.
+//  Copyright (c) 2015 Location. All rights reserved.
 //
 
-#import "LocationAppDelegate.h"
+// DataManager.m
+#import "DataManager.h"
 
-@implementation LocationAppDelegate
+
+@interface DataManager ()
+
+@end
+
+@implementation DataManager
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    self.locationTracker = [[LocationTracker alloc]init];
-    [self.locationTracker startLocationTracking];
-    return NO;
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
++ (DataManager*)sharedInstance {
+    static dispatch_once_t pred;
+    static DataManager *sharedInstance = nil;
+    
+    dispatch_once(&pred, ^{ sharedInstance = [[self alloc] init]; });
+    return sharedInstance;
 }
 
 
--(void)saveContext
+-(void)save
 {
-NSError *error = nil;
-NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-if (managedObjectContext != nil) {
-    if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-        // Replace this implementation with code to handle the error appropriately.
-        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
     }
-}
 }
 
 #pragma mark - Core Data stack

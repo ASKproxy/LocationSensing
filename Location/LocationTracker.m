@@ -12,6 +12,10 @@
 
 @implementation LocationTracker
 
+
+//this is almost the same as a Singleton implementation. It only gets
+//declared once. That way it can be used even when the app
+//goes into the background
 + (CLLocationManager *)sharedLocationManager {
 	static CLLocationManager *_locationManager;
 	
@@ -27,14 +31,13 @@
 - (id)init {
 	if (self==[super init]) {
         //Get the share model and also initialize myLocationArray
+
         self.shareModel = [LocationShareModel sharedModel];
         self.shareModel.myLocationArray = [[NSMutableArray alloc]init];
+
+        //Initialize the Core Data stack
+        self.dataManager=[DataManager sharedInstance];
       
-        LocationAppDelegate *appDelegate = (LocationAppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.managedObjectModel=appDelegate.managedObjectModel;
-        self.managedObjectContext=appDelegate.managedObjectContext;
-        self.persistentStoreCoordinator=appDelegate.persistentStoreCoordinator;
-        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
 	}
 	return self;
@@ -135,7 +138,11 @@
             [dict setObject:[NSNumber numberWithFloat:theLocation.latitude] forKey:@"latitude"];
             [dict setObject:[NSNumber numberWithFloat:theLocation.longitude] forKey:@"longitude"];
             [dict setObject:[NSNumber numberWithFloat:theAccuracy] forKey:@"theAccuracy"];
-            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:.managedObjectContext];
+          
+          
+            //create the entity over here
+            NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Location" inManagedObjectContext:self.dataManager.managedObjectContext];
+
             NSManagedObject *latestLocation = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:self.managedObjectContext];
             
             //Add the vallid location with good accuracy into an array

@@ -12,20 +12,24 @@
 	<dict>
 		<key>029FEF2044F706BEE450019BE965248136ECB26E</key>
 		<string>https://github.com/ercollin/Location.git</string>
+		<key>FAC87F29D8661A43FE5DB8848092BA89CC73F532</key>
+		<string>https://github.com/ASKproxy/LocationSensing.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Location.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>029FEF2044F706BEE450019BE965248136ECB26E</key>
+		<string>../../../Location</string>
+		<key>FAC87F29D8661A43FE5DB8848092BA89CC73F532</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/ercollin/Location.git</string>
+	<string>https://github.com/ASKproxy/LocationSensing.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>029FEF2044F706BEE450019BE965248136ECB26E</string>
+	<string>FAC87F29D8661A43FE5DB8848092BA89CC73F532</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>029FEF2044F706BEE450019BE965248136ECB26E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Location</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FAC87F29D8661A43FE5DB8848092BA89CC73F532</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LocationSensing</string>
 		</dict>
 	</array>
 </dict>
