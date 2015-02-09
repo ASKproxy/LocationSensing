@@ -6,6 +6,10 @@
         <attribute name="z_axis" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Audio" syncable="YES"/>
+    <entity name="Bluetooth" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Location" syncable="YES">
         <attribute name="accuracy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -16,5 +20,6 @@
         <element name="Accelerometer" positionX="-4671" positionY="93" width="128" height="88"/>
         <element name="Audio" positionX="-4707" positionY="-63" width="128" height="43"/>
         <element name="Location" positionX="-4905" positionY="30" width="128" height="103"/>
+        <element name="Bluetooth" positionX="-4788" positionY="36" width="128" height="73"/>
     </elements>
 </model>

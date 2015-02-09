@@ -22,6 +22,9 @@
     self.accelerometerTracker = [[AccelerometerTracker alloc]init];
     [self.accelerometerTracker startAccelerometerTracking];
     
+    //Start the bluetooth as well
+    self.bluetoothTracker = [[BluetoothTracker alloc]init];
+    [self.bluetoothTracker startBluetoothTracking:self.bluetoothTracker.centralManager];
     
     return YES;
 }

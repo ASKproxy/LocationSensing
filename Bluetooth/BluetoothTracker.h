@@ -8,12 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "DataManager.h"
 
-@interface BluetoothTracker : NSObject
+@interface BluetoothTracker : NSObject<CBCentralManagerDelegate>
 
+
+@property (strong,nonatomic) DataManager * dataManager;
 @property (strong,nonatomic) CBCentralManager *centralManager;
+@property (strong,nonatomic) NSMutableArray *devicesList;
 
--(void) startBluetoohTracking;
+//used to store the number of times each device was seen
+@property (strong,nonatomic) NSMutableDictionary *numberOfOccurrences;
 
+
+-(void) startBluetoothTracking:(CBCentralManager *) central;
+-(void) updateDatabase:(NSDictionary *)dict;
 
 @end

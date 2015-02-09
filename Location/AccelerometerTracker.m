@@ -52,7 +52,6 @@
     NSLog(@"Stored the accelerometer data");
     
     NSError *error = nil;
-    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Accelerometer" inManagedObjectContext:self.dataManager.managedObjectContext];
