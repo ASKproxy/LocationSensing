@@ -13,8 +13,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
+
+    //Start the GPS
     self.locationTracker = [[LocationTracker alloc]init];
     [self.locationTracker startLocationTracking];
+    
+    //Start the Accelerometer
+    self.accelerometerTracker = [[AccelerometerTracker alloc]init];
+    [self.accelerometerTracker startAccelerometerTracking];
+    
+    
     return YES;
 }
 							

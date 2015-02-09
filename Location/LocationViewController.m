@@ -23,7 +23,7 @@ NSString *const locationUpdateNotificationCenterName=@"locationUpdateNotificatio
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alterLabel:) name:locationUpdateNotificationCenterName object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alterLabel:) name:locationUpdateNotificationCenterName object:nil];
 
 }
 

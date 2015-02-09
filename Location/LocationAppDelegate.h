@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationTracker.h"
+#import "AccelerometerTracker.h"
 
 @interface LocationAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property LocationTracker * locationTracker;
+@property AccelerometerTracker * accelerometerTracker;
 
 @end

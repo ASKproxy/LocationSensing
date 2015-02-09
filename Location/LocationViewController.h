@@ -11,6 +11,5 @@
 @interface LocationViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *Latitude;
 @property (weak, nonatomic) IBOutlet UILabel *Longitude;
-@property (weak, nonatomic) IBOutlet UILabel *Timestamp;
 
 @end
